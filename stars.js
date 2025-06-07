@@ -1,29 +1,91 @@
-const sky = document.querySelector(".sky");
-const tombstone = document.querySelector(".tombstone");
-const tombstoneRect = tombstone.getBoundingClientRect();
-const numStars = 150;
+window.onload = function () {
+  const canvas = document.createElement("canvas");
+  canvas.classList.add("star-canvas");
+  document.body.appendChild(canvas);
 
-for (let i = 0; i < numStars; i++) {
-  const star = document.createElement("div");
-  star.classList.add("star");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+  const numStars = 300;
+  let prevTombBottom = 0;
 
-  let x, y;
+  function resizeCanvas() {
+    const tombstone = document.querySelector(".tombstone");
+    const rect = tombstone.getBoundingClientRect();
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-  do {
-    // Random position anywhere in the sky
-    x = Math.random() * window.innerWidth;
-    y = Math.random() * window.innerHeight;
+    const tombLeft = rect.left;
+    const tombRight = rect.right;
+    const tombTop = rect.top + scrollY;
+    const tombBottom = rect.bottom + scrollY;
 
-    // Keep generating until star is outside the tombstone bounds
-  } while (
-    x > tombstoneRect.left - 20 &&
-    x < tombstoneRect.right + 20 &&
-    y > tombstoneRect.top - 20 &&
-    y < tombstoneRect.bottom + 20
-  );
+    canvas.width = window.innerWidth;
+    canvas.height = tombBottom + 100;
 
-  star.style.left = `${x}px`;
-  star.style.top = `${y}px`;
+    canvas.dataset.tombLeft = tombLeft;
+    canvas.dataset.tombRight = tombRight;
+    canvas.dataset.tombTop = tombTop;
+    canvas.dataset.tombBottom = tombBottom;
 
-  sky.appendChild(star);
-}
+    return tombBottom;
+  }
+
+  function generateStars() {
+    stars = [];
+    const tombLeft = parseFloat(canvas.dataset.tombLeft);
+    const tombRight = parseFloat(canvas.dataset.tombRight);
+    const tombTop = parseFloat(canvas.dataset.tombTop);
+    const tombBottom = parseFloat(canvas.dataset.tombBottom);
+
+    for (let i = 0; i < numStars; i++) {
+      let x, y;
+
+      do {
+        x = Math.random() * canvas.width;
+        y = Math.random() * canvas.height;
+      } while (x > tombLeft && x < tombRight && y > tombTop && y < tombBottom);
+
+      stars.push({
+        x,
+        y,
+        radius: Math.random() * 1.5 + 0.3,
+        alpha: Math.random(),
+        delta: Math.random() * 0.02 + 0.005,
+      });
+    }
+  }
+
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+      ctx.fill();
+
+      // Twinkle
+      star.alpha += star.delta;
+      if (star.alpha <= 0 || star.alpha >= 1) {
+        star.delta = -star.delta;
+      }
+    }
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    const currentTombBottom = resizeCanvas();
+
+    if (currentTombBottom !== prevTombBottom) {
+      generateStars(); // only when height changes
+      prevTombBottom = currentTombBottom;
+    }
+
+    drawStars();
+  }
+
+  // Initial setup
+  prevTombBottom = resizeCanvas();
+  generateStars();
+  animate();
+};
