@@ -19,7 +19,7 @@ window.onload = function () {
     const tombBottom = rect.bottom + scrollY;
 
     canvas.width = window.innerWidth;
-    canvas.height = tombBottom + 100;
+    canvas.height = Math.max(window.innerHeight, tombBottom + 100);
 
     canvas.dataset.tombLeft = tombLeft;
     canvas.dataset.tombRight = tombRight;
