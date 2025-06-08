@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
   const texts = allParas.map((p) => p.textContent);
   allParas.forEach((p) => (p.textContent = ""));
 
-  const typingSpeed = 50;
+  const typingSpeed = 10;
 
   function typeParagraph(index = 0) {
     if (index >= allParas.length) return;
