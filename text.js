@@ -1,34 +1,18 @@
 window.addEventListener("load", function () {
-  const paragraphs = document.querySelectorAll(".tombtext p");
-  const footerPara = document.querySelector(".tombstone > footer p");
+  const elements = document.querySelectorAll(".tombtext p, .tombtext pre");
+  const totalDuration = 5 * 60 * 1000; // 5 minutes in ms
+  const interval = totalDuration / elements.length;
 
-  const allParas = Array.from(paragraphs);
-  if (footerPara) allParas.push(footerPara);
+  let index = 0;
+  function revealNext() {
+    if (index >= elements.length) return;
 
-  const texts = allParas.map((p) => p.textContent);
-  allParas.forEach((p) => (p.textContent = ""));
-
-  const typingSpeed = 10;
-
-  function typeParagraph(index = 0) {
-    if (index >= allParas.length) return;
-
-    const para = allParas[index];
-    const text = texts[index];
-    let i = 0;
-
-    function typeNext() {
-      if (i < text.length) {
-        para.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeNext, typingSpeed);
-      } else {
-        typeParagraph(index + 1);
-      }
+    for (let i = 0; i < 2 && index < elements.length; i++, index++) {
+      elements[index].classList.add("show");
     }
 
-    typeNext();
+    setTimeout(revealNext, interval);
   }
 
-  typeParagraph();
+  revealNext();
 });
