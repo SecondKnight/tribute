@@ -50,7 +50,7 @@
         color: white;
         position: relative;
         z-index: 10;
-        overflow: hidden;
+        overflow: visible;
         border: 1px solid #111;
       }
       .tombstone::before {
@@ -127,7 +127,7 @@
         }
       }
       .tombtext p,
-      .tombtext pre {
+       {
         opacity: 0;
         transform: translateY(0.5em);
         transition: opacity 0.5s ease, transform 0.5s ease;
@@ -135,6 +135,19 @@
         overflow: hidden;
         margin: 0;
       }
+      .tombtext pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 
       .tombtext p.show,
       .tombtext pre.show {
