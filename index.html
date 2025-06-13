@@ -36,27 +36,38 @@
       }
 
       .tombstone {
-        margin-top: 50px;
-
-        margin-bottom: auto;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 600px;
-        width: 100%;
-        box-shadow: inset 0.3125rem 0.3125rem 0.5rem rgba(0, 0, 0, 0.4),
-          inset -0.125rem -0.125rem 0.3rem rgba(255, 255, 255, 0.15);
-        border-radius: 30px 30px 0 0;
-        padding: 3.75rem 2.5rem;
-        text-align: center;
-        z-index: 10;
-        position: relative;
-        background: repeating-linear-gradient(#5f5f63, #3a3a3b, #2e2e31);
+        margin: 60px auto;
+        max-width: 700px;
+        width: 90%;
+        background: #000; /* Solid black tablet screen */
+        border-radius: 2rem;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.8),
+          inset 0 0 15px rgba(255, 255, 255, 0.05);
+        padding: 3rem 2rem;
         font-family: "Merriweather", serif;
-        font-weight: 300;
-        letter-spacing: 0.05rem;
-        line-height: 1.5;
-        font-size: 2rem;
-        filter: grayscale(1) contrast(1.2);
+        font-size: 1.6rem;
+        line-height: 1.6;
+        color: white;
+        position: relative;
+        z-index: 10;
+        overflow: hidden;
+        border: 1px solid #111;
+      }
+      .tombstone::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.03) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+        border: 2px solid #222;
       }
 
       /* Stars will be absolutely positioned inside .sky */
@@ -93,9 +104,10 @@
       }
       @media (max-width: 768px) {
         .tombstone {
-          padding: 2rem 1.5rem;
-          font-size: clamp(1.25rem, 4.5vw, 1.5rem);
-          line-height: 1.6;
+          padding: 2rem 1rem;
+          font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+          line-height: 1.5;
+          border-radius: 1.5rem;
         }
 
         .sky {
@@ -114,6 +126,23 @@
           margin-bottom: 1.5rem;
         }
       }
+      .tombtext p,
+      .tombtext pre {
+        opacity: 0;
+        transform: translateY(0.5em);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      .tombtext p.show,
+      .tombtext pre.show {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+        margin-bottom: 1.5rem;
+      }
     </style>
   </head>
   <body>
@@ -121,7 +150,7 @@
       <main>
         <div class="tombstone">
           <section>
-            <header><h1>...</h1></header>
+            <header><h1>My farewell gift...</h1></header>
             <article>
               <div class="tombtext">
                 <p>IMPORTANT:</p>
@@ -135,36 +164,31 @@
                   Alright,you really thought that I would just listen to you and
                   not give you anything for an actual farewell gift?
                 </p>
-                <p>How naive of you.</p>
                 <p></p>
-                <p>
-                  Honestly,I wanted to give you a gift that you would actually
-                  use in your daily life and to give a farewell letter with it
-                  since I know you like handwritten stuff (99% sure). But
-                  noooooooo,you don't want me to gift you anything and have the
-                  gall to try to change the intention of the gift I made for
-                  you.
-                </p>
+                <p>How naive of you.</p>
                 <p></p>
                 <p>
                   Welp jokes on you,you already opened this and now have to
                   accept this.
                 </p>
                 <p>
+                  I even made it as a tablet screen to keep your attention.
+                  Unfortunately the subway surfer videos are out of budget
+                </p>
+                <p>
                   To be fair this is more of a letter than a gift so I guess you
                   may have won somewhat,but I'm getting the final word here so
-                  now enjoy my monologue on random shit.
+                  now just savor the masterpiece that I made just for you.
                 </p>
                 <p></p>
                 <p>
                   Not gonna lie,this letter is probably a bit scary for me to be
-                  writing since I've decided that I'm gonna be bit more honest.
+                  writing since I've decided that I'm gonna be a bit more
+                  honest.
                 </p>
                 <p>
                   Hmm is it me becoming more honest or is it me just letting my
-                  guard down. Since I feel like if I yapped like how I would
-                  normally yap with you then it might affect the relationship
-                  that I have with you.
+                  guard down?
                 </p>
                 <p></p>
                 <p>
@@ -181,7 +205,7 @@
                 <p>
                   Plus,it would be unfair to you if you're the only one
                   revealing their true thoughts,so that conversation is what
-                  kinda gives me the motivation to be more honest and revealing
+                  kinda gives me the motivation to be more honest and reveal
                   more of my thoughts.
                 </p>
                 <p></p>
@@ -191,22 +215,29 @@
                 </p>
                 <p></p>
                 <p>
-                  It must really be hard having to think of the answers to the
-                  most out of pocket questions like what brand is your microwave
-                  is (answer this btw since I don't think I asked you that
-                  question)
+                  Since it must really be hard having to think of the answers to
+                  the most out of pocket questions like “what brand is your
+                  microwave?” (answer this btw since I don't think I asked you
+                  that question) lol.
                 </p>
-                <p></p>
-                <p></p>
+                <p>
+                  Honestly,even if I didn't ask you all of these questions we
+                  would still be friends.I would just have to think of a new way
+                  to engage in convos with you.
+                </p>
                 <p></p>
                 <p>
                   Now I'll yap about some stuff that I wanted to either say to
-                  you or do with you since now that I'm going those ideas/things
-                  I wanted to do that will either be impossible to do or will be
-                  harder. Now the reason for this is because I didn't want you
-                  to solely do stuff that you seem to feel uncomfortable doing
-                  just because of my whims. I feel like that I'd be overstepping
-                  a few boundaries¹ which is why I've ultimately kept this stuff
+                  you or do with you since now that I'm going back to the US,
+                  those ideas/things I wanted to do will become harder and
+                  discourages you from doing it just because I wanted it,which
+                  looking back in hindsight is kinda dumb but still.
+                </p>
+                <p>
+                  Now the reason for this is because I didn't want you to solely
+                  do stuff that you seem to feel uncomfortable doing just
+                  because of my whims. I feel like that I'd be overstepping a
+                  few boundaries¹ which is why I've ultimately kept this stuff
                   in my head until now. Hmm I guess I could call these as my
                   regrets
                 </p>
@@ -216,8 +247,8 @@
                   for me to hear your emotions. Plus I think I'd be able to
                   bully/tease you way more easily and listening to your voice is
                   a blessing in itself. But for me to say that myself it would
-                  be weird considering you already saying that you prefer text
-                  and you seeming to be adverse to the idea itself.
+                  be weird considering you already said that you prefer text and
+                  you seem to be adverse to the idea itself.
                 </p>
                 <p>
                   (Action)((ngl I need help atp with the way I just categorize
@@ -225,20 +256,22 @@
                 </p>
                 <p></p>
                 <p>
-                  2. Wanting to yap with you more in generally. Honestly,I think
+                  2. Wanting to yap with you more in general. Honestly,I think
                   this is just me being clingy and greedy ig,welp fuck it we
                   ball. Since before,we were both lazy bums and I'd be able to
-                  yap with you 24/7 and now we cant since you've become busy and
-                  soon I'm about to join you in being busy and now with
+                  yap with you 24/7 and now we can't since you've become busy
+                  and soon I'm about to join you in being busy and now with
                   time-zones we might yap even less.
                 </p>
+                <p></p>
                 <p>
-                  Sigh and I still want to stay close to you lol. Eh atp I'm
-                  used to waiting,a bit more waiting wouldn't hurt. Btw if it
-                  isn't already clear,I'm not blaming you at all in this letter
-                  since I know your reasons,whatever they are are definitely
-                  valid,plus it'd be selfish of me to say all of this when ik
-                  you have your reasons (words)
+                  Sigh and I still want to stay close to you lol without trying
+                  to be too clingy. Welp at this point I'm used to waiting for
+                  you,a bit more waiting wouldn't hurt. Btw if it isn't already
+                  clear,I'm not blaming you at all in this letter since I know
+                  your reasons,whatever they are are definitely valid,plus it'd
+                  be selfish of me to say all of this when I know you have your
+                  reasons (words)
                 </p>
                 <p></p>
                 <p>
@@ -251,9 +284,9 @@
                   lazy and to do this just before I go. Since now I want to
                   share this with you like how I share everything else when
                   there are 15 whole days left. I usually share everything I do
-                  to you since it makes for a good conversation topic. Before I
-                  would just yap about it by making a wall of text each time or
-                  a voice message like how I was always updating you about my
+                  with you since it makes for a good conversation topic. Before
+                  I would just yap about it by making a wall of text each time
+                  or a voice message like how I was always updating you about my
                   life. Now I just prefer dumping it on you when I know you're
                   online. Unfortunately that makes me forget some stuff that I
                   planned to tell you lol.
@@ -264,12 +297,12 @@
                   A while ago,like maybe a few weeks ago I was thinking about
                   the possible scenarios of me lying to you. Not because I
                   wanted to lie to you or was planning on lying to you lol.
-                  Actually,I take the latter part of that last sentence back
-                  since that's just me thinking about when I should lie to you
-                  which comes under "planning on lying to you". So then I came
-                  to the conclusion that the only reason I would lie to you
-                  about something would be because of you or because of the bond
-                  we built up so I don't get ghosted the next day.
+                  Actually,I take the last part of that last sentence back since
+                  that's just me thinking about when I should lie to you which
+                  comes under "planning on lying to you". So then I came to the
+                  conclusion that the only reason I would lie to you about
+                  something would be because of you or because of the bond we
+                  built up so I don't get ghosted the next day.
                 </p>
                 <p></p>
                 <p>
@@ -280,12 +313,6 @@
                   questions to me lol ;).
                 </p>
                 <p></p>
-                <p>
-                  (I'll use emoticons and tone indicators in this letter so you
-                  don't get confused about the tone of this letter and then say
-                  that I'm just angry at you. Maybe I should become a psychic
-                  with these predictions of mine)
-                </p>
                 <p></p>
                 <p>
                   Ultimately at the end of my mental dialogue,I decided to just
@@ -301,7 +328,7 @@
                   oblivious and it's a perfect strategy to counter you.
                   Oblivious does not mean dumb so I'm not calling you dumb,it
                   simply means that you just don't notice some things which is
-                  ngl a blessing in disguise for me heh.
+                  both a blessing and a curse.
                 </p>
                 <p></p>
                 <p>
@@ -315,13 +342,12 @@
                 <p></p>
                 <p>
                   You're one of very few people that I always speak to after
-                  all. I know that you'll eventually leave but I hope that you
-                  take as long as possible to leave
+                  all. I know that you'll eventually leave one but I hope that
+                  you stay for a while more.
                 </p>
                 <p></p>
-                <p></p>
                 <p>
-                  Since I've decided let my guard down a bit with you,It's a
+                  Since I've decided to let my guard down a bit with you,It's a
                   good time for me to ask you about how you view me and what are
                   your actual thoughts about me.
                 </p>
@@ -337,32 +363,165 @@
                   actually implement them.
                 </p>
                 <p></p>
+                <p></p>
                 <p>
-                  I planned on writing this letter as in a normal letter
-                  originally with a decent diary.
+                  When I was first thinking about buying you a new gift,my first
+                  idea was giving you a diary which is why I asked you some
+                  questions like "what type of pages do you like?" and just any
+                  related diary question.
                 </p>
                 <p>
-                  Since I wanted you to start writing things that you wanted to
-                  remember,about the feelings that you feel and to just serve as
-                  an appropriate medium for you to vent to. My rationale behind
-                  this was so that you could release any of your pent-up
-                  emotions in a better way since it isn't healthy to have them
-                  pent-up. This entire paragraph was originally supposed to the
-                  main thing of that letter and from there I would improvise and
-                  make it.
+                  Since in case I disappear or we just stop talking,you'll still
+                  be able to yap about your life in the diary and can just vent
+                  out any of your pent-up emotions in it.
                 </p>
                 <p></p>
                 <p>
-                  Welp plans changed so this letter changed and eventually I got
-                  the idea to make this letter in it's place
+                  I wasn't going to plan on writing a letter like this at the
+                  time that I locked in on the diary idea. It would be a weaker
+                  version of this letter with the main body of that letter being
+                  the paragraph above this one and then while I would be writing
+                  it,I would just improvise my writing like how I normally do.
+                </p>
+                <p></p>
+                <p>
+                  Usually I do this stuff all the time and then after doing
+                  it,my brain gets super-inspired and then I would just mope in
+                  the regret of not adding the ideas that I had.
+                </p>
+                <p></p>
+                <p>
+                  So,when I asked you what you would do after getting a new
+                  diary,you said that you would just let collect dust by
+                  chucking it on a shelf.
+                </p>
+                <p></p>
+                <p>
+                  I had to think fast on possible gifts that I could give that
+                  you would either like or would find it useful or just be
+                  unique.
+                </p>
+                <p></p>
+                <p>
+                  So I narrowed my options down to two things,a binoculars worth
+                  ₹700 and a capsule clock that's ₹1600.
+                </p>
+                <p>
+                  Since you love to roam around and want to explore the world,I
+                  thought binoculars would be a good fit for you.
+                </p>
+                <p>
+                  And for the capsule clock,I just thought that it would look
+                  nice on your desk that I don't know anything about,it was a
+                  backup idea.
+                </p>
+                <p></p>
+                <p>Speaking of gifts,I just got a new idea. A watch.</p>
+                <p>
+                  Hmm what kind of watch would you like would be the real
+                  question.
+                </p>
+                <p></p>
+                <p>
+                  I wonder,what color would suit your skin tone better? Gold or
+                  Silver? Hmm since Gold could act as a contrast for it and
+                  would make the watch stand out a bit and silver would give you
+                  a more elegant and would blend in with your skin tone. Since I
+                  can't really confirm your skin,I have an idea. How much does
+                  your skin blend in with the color silver? If it blends in
+                  nicely then you're white and if it contrasts then you're more
+                  brown. I'm just guessing stuff so this idea of mines probably
+                  won't be accurate. Am I able to give you gifts even after
+                  going back if it is possible for me to do so? (Sigh I know
+                  your answer will probably be no but it's well worth a try.)
+                </p>
+                <p></p>
+                <p>Anyways,where was I?</p>
+                <p></p>
+                <p>
+                  Since you decided to say no about me giving you a farewell
+                  gift,I stopped brainstorming new possible gifts and then
+                  started to make this website instead of writing a farewell
+                  letter so it would be an actual farewell gift that you would
+                  have no choice but to accept. Since some concrete brick
+                  thought it was a good idea to decide that the website that I
+                  made for you last time was my farewell letter.
+                </p>
+                <p></p>
+                <p>
+                  Sometimes,I just want to hit them with a chisel. Not gonna
+                  lie,I kinda wanted to write a letter to you by hand since I
+                  know that you like handwritten and personal stuff. But thanks
+                  to your refusal,you created this monster of almost 2,500
+                  words. I wonder how many words this letter is going to be by
+                  the time you actually read this². I'm low key proud of myself
+                  for being able to yap this much.
+                </p>
+                <p>
+                  I started this project four days ago and didn't start making
+                  this letter until I finished the work on the actual website
+                  itself since if the website works then I could just copy paste
+                  this entire letter.
+                </p>
+                <p></p>
+                <p>
+                  For this project,I used another C file in order to process
+                  this letter. If you want to know more about the technical
+                  details then you could read it in the footnotes³.
+                </p>
+                <p></p>
+                <p>
+                  I've actually stopped playing games for the most part since
+                  I'm working on this.
+                </p>
+                <p></p>
+                <p>
+                  I even typed this all out with my laptop. I even took out some
+                  of its keycaps while typing all of this since some of the keys
+                  were moving slower than before and then blew into it before
+                  putting it back.
+                </p>
+                <p>
+                  Sometimes what I like to do is to just keep my head up,close
+                  my eyes and continue typing since I'm good enough to type
+                  without seeing the keyboard without making too many mistakes
+                  and it just feels nice to do ngl.
                 </p>
                 <p></p>
                 <p>
                   Writing letters is also a habit that I picked up from you. The
                   first letter I've ever written to a friend ever since I came
                   here was for you after all. I just realised that this is also
-                  the first farewell letter that I've ever written aswell lol.
-                  You have both my first letter and my first farewell latter.
+                  the first farewell letter that I've ever written as well lol.
+                  You have both my first letter and my first farewell letter.
+                </p>
+                <p></p>
+                <p>
+                  If I remember correctly,the first compliment that I ever gave
+                  you was by calling you an enigma. Now,I'm going to explain
+                  what an enigma is and how you're an enigma to me.
+                </p>
+                <p>
+                  The definition of an enigma is "a person or thing that is
+                  mysterious or difficult to understand." according to oxford.
+                </p>
+                <p>
+                  For me,you are indeed mysterious in a way since there's always
+                  something that I didn't know about you before and then you
+                  just casually tell me lol. Like how you told me that you knew
+                  how to make those jewelry with those beads.how you were also
+                  good at swimming etc. (Since knowing you,there's probably more
+                  lol)
+                </p>
+                <p></p>
+                <p>
+                  The "difficult to understand" part doesn't apply to you since
+                  I can understand you for the most part.
+                </p>
+                <p></p>
+                <p>
+                  In hindsight,enigma isn't really a word used to compliment
+                  people but it's still a compliment in my opinion.
                 </p>
                 <p></p>
                 <p>
@@ -377,7 +536,9 @@
                 <p></p>
                 <p>
                   You're the only person who seems to have moved into my head
-                  with how many thoughts I have about you.
+                  with how many thoughts I have about you. I think the most
+                  dreams that I've ever had that are related to a person or has
+                  a person was you for this year and maybe last year.
                 </p>
                 <p></p>
                 <p>
@@ -388,41 +549,55 @@
                 </p>
                 <p></p>
                 <p></p>
-                <p>I thank you for the time that you've given me.</p>
-                <p>I thank you for always being here with me.</p>
-                <p>i thank you for being a safe place for me.</p>
-                <p>I thank you for the joy that you have given me.</p>
-                <p>I thank you for being a friend to a person like me.</p>
-                <p>I thank my Lord for creating you.</p>
                 <p>
-                  I thank my Lord for making all of these events create such a
-                  beautiful outcome.
+                  Do you know what my highlight of last year was? Meeting you
+                  was the best thing that ever happened to me last year. At that
+                  time I was already suspicious of him when we first met and you
+                  gave me enough evidence for me to be able to cut off that
+                  snake. From there we went from strangers to kindred souls.
                 </p>
                 <p></p>
                 <p>
-                  These aren't compliments,so don't think of them of like that.
+                  I'd like to thank you for all of the time that you've given
+                  me,for always being ready to listen to my yapping. You're
+                  actually the only person that I can yap about secrets for more
+                  than one reason,so you're kinda like a safe area for me in
+                  that regard. You made my life better by just existing since
+                  yapping with you makes me happy. I thank my Lord for all of
+                  this.
+                </p>
+                <p></p>
+                <p></p>
+                <p>
+                  These aren't compliments,so don't think of them like that.
                 </p>
                 <p>This is the truth for me.</p>
                 <p>
-                  You are one of most beautiful people that I have ever seen.
+                  You're one of the most beautiful people that I know and that
+                  says something especially when I've never seen your face after
+                  10th. Your beauty doesn't need to be seen for others to
+                  notice. You're a hard working person and are super productive
+                  once you put your mind into it which is something that I both
+                  lack but still admire.
                 </p>
                 <p>
-                  You are one of the most hard working and productive people
-                  that I have ever known.
+                  You put the desires of others before your own desires and are
+                  a compassionate person for children. Your voice is
+                  timeless,just like your public speaking skills. Honestly,you
+                  could improve it even more if you become an extrovert but you
+                  being an introvert and having a good skill level is already
+                  good enough.
                 </p>
                 <p>
-                  You are a person who prioritizes others over themselves and
-                  has a selfless personality.
+                  You call yourself boring which is understandable since you
+                  already know everything about yourself or are just chill
+                  enough to forget yourself,but for me you're the complete
+                  opposite,like if I have to pick a color that reminds me of you
+                  then I would say brown. Not the boring type of brown,but a
+                  coffee ish hazelnut brown since I feel like it would be you
+                  the most. I get tired of people in general,not a specific
+                  person and I couldn't get tired of you even if I tried.
                 </p>
-                <p>
-                  You are the most interesting person that I have ever known,as
-                  opposed to your own opinion that you are just a boring person
-                </p>
-                <p>You are a gift to this world and it's children.</p>
-                <p>
-                  You are a person that I would never get tired of being with.
-                </p>
-                <p>You are the only person that I would do all of this for.</p>
                 <p></p>
                 <p></p>
                 <p>As a friend of yours,I ask you this.</p>
@@ -437,7 +612,27 @@
                   heedless manner. If you want to waste it,then at least be the
                   one that wastes it.
                 </p>
+                <p>
+                  Is it really worth hurting yourself for those that do not
+                  deserve your kindness and constantly abuse it? Just bite their
+                  ankles instead of being a pushover.
+                </p>
                 <p></p>
+                <p>
+                  Don't lose hope in yourself,Allah azzawajal doesn't burden a
+                  soul more than what it can bear and whenever he closes a door
+                  for you,he opens another. Even if it's hopeless,don't give up
+                  and persevere. Trust in your Lord m'lady.
+                </p>
+                <p></p>
+                <p>
+                  I'd gladly help you out with anything but I don't think you
+                  would ask me for help. Hmm,I should make you promise that
+                  you'll ask me for help whenever you need help or just anything
+                  in general. I'm sure that I'm not the only one that echoes
+                  this sentiment and that someone will at least help you even if
+                  I didn't exist.
+                </p>
                 <p></p>
                 <p>
                   Remember,I'll always be there for you and that someone will
@@ -448,26 +643,214 @@
                 <p></p>
                 <p>
                   I'd love to say more but I gotta balance my honesty keeping
-                  you in mind,since as much I do care and adore you,I don't want
-                  to scare you away and lose you because of the weight of my
-                  feelings. I actually had to revise this letter and remove 400
-                  words lol.
+                  you in mind,since as much as I do care and adore you,I don't
+                  want to scare you away and lose you because of the weight of
+                  my feelings. I actually had to revise this letter and remove
+                  400 words and change some sentences. I still have that version
+                  and might send it to you depending on how things go lol
                 </p>
                 <p></p>
-                <p>I bid you farewell M'lady</p>
+                <p>
+                  When you read this letter,I want you to know that I'm not
+                  angry at you or anything like that so don't misunderstand my
+                  words. The reason for me saying this is because as you know
+                  very well,I don't really use emojis so you aren't able to know
+                  the tone of my words. Sometimes you would think that I was
+                  angry when I wasn't.
+                </p>
+                <p>
+                  So,since I don't really know how to make the tone of this
+                  letter apparent by using emojis,I’ll leave it up to you to
+                  interpret the tone of this letter. Let me know what your
+                  interpretation is since I honestly don't know how to actually
+                  vocalize the tone lol.
+                </p>
+                <p></p>
+                <p>
+                  I've also said this before but since you're so good at
+                  forgetting,I'll say it again. You can't make me angry. Like
+                  the only time that you made me a bit annoyed was when you were
+                  late when we were exchanging books at the cgt bus stop and we
+                  misunderstood stuff. So,don't think that I'm angry or upset at
+                  you anywhere in this letter or I'll become upset. (Yes,me
+                  becoming upset is an extinction-level disaster for you and you
+                  shouldn't let that happen.)
+                </p>
+                <p></p>
+                <p>
+                  When you finish reading this letter,can you gimme more than a
+                  few words for a response since it's a bit hard for me to cook
+                  up over 3000 words and I want to know more on what you think
+                  of this.
+                </p>
+                <p></p>
+                <p>
+                  I think I've said enough and that it's finally time for me to
+                  wrap things up. If I continue writing this out then you might
+                  forget the beginning.
+                </p>
+                <p></p>
+                <p>What better way to give a farewell than to use a poem.</p>
+                <p></p>
+                <p>A knight who bleeds,</p>
+                <p>his spilled blood adorned by the sun’s light.</p>
+                <p></p>
+                <p>Conquering land by sword or pen,</p>
+                <p>his ink dries,</p>
+                <p>but his blood still flows hot with the vigor of the sun.</p>
+                <p></p>
+                <p>Yet his homeland sings to him—</p>
+                <p>a land bereft of a sun.</p>
+                <p></p>
+                <p>His creed demands his presence,</p>
+                <p>but his heart craves the Sun's warmth.</p>
+                <p></p>
+                <p>The path is clear as he struggles to cast off the light.</p>
+                <p></p>
+                <p>Alas, he hardens his heart</p>
+                <p>and bids farewell to his sun.</p>
+                <p></p>
+                <p>His march begins,</p>
+                <p>one without the light of the sky’s lantern.</p>
+                <p></p>
+                <p>A knight journeying home.</p>
+                <p>A sun blazes bright,</p>
+                <p>leaving a tall shadow on the knight—</p>
+                <p>one that merges into his own.</p>
+                <p></p>
+                <p>The knight now carries a gaze in his shadow—</p>
+                <p>The quiet gaze of a sun who never left.</p>
+                <p></p>
+                <p>I bid you my farewell M'lady.</p>
+                <p>فِي أَمَانِ اللَّهِ</p>
+                <p></p>
+                <p></p>
+
+                <p>FOOTNOTES</p>
+                <p>¹:</p>
+                <p>
+                  What are those boundaries? It's basically what I perceive as
+                  the boundaries of our relationship,so it'd be more accurate
+                  for it to be called the boundaries of this relationship. Since
+                  I feel like that if I go beyond these boundaries, I might
+                  overwhelm or detrimentally affect you.
+                </p>
+                <p></p>
+                <p>
+                  Hmm maybe I really am becoming schizophrenic over this. This
+                  entire thing is just my pent-up overthinking
+                </p>
+                <p></p>
+                <p>
+                  ²:I started this from June 5th lol. So the total word count
+                  went from 1,500 to 2,300 thousand words and then after I had
+                  to remove some stuff it became 1900ish words. At the time that
+                  I'm currently writing this footnote,it's 2575 words. Also I'm
+                  not including the footnotes in the word count. I'll add
+                  date-stamps of the total word count starting from June 8th
+                </p>
+                <p>June 8th=1900 words || The culling incident</p>
+                <p>June 9th=2635 words ||</p>
+                <p>June 10th=2815 words || Working on a poem</p>
+                <p>
+                  June 11th=2972 words || poem has been added,187 words removed
+                  and stuffed into footnote 3
+                </p>
+                <p>June 12th=3472 words ||the letter is almost finished.</p>
+                <p>
+                  June 13th=3512 words || I believe that the letter is finished.
+                </p>
+                <p></p>
+                <p>
+                  ³:Since if I use a single paragraph tag for this entire
+                  letter,the spacing wouldn't be proper. So what the C file does
+                  is wrap each line with
+                </p>
+                <p>tags.</p>
+                <p>
+                  If there's an empty space then it makes a tag with nothing
+                  inside of it.
+                </p>
+                <p>For example,</p>
+                <p></p>
+                <pre>
+Input=test | output=&lt;p&gt;test&lt;/p&gt;
+input=        | output=&lt;p&gt;&lt;/p&gt;
+test          | &lt;p&gt;test&lt;/p&gt;
+</pre
+                >
+
+                <p></p>
+                <p>
+                  Now,you're probably wondering,why did I pick a tombstone for
+                  the design?
+                </p>
+                <p>
+                  I felt like it would look cool and to foreshadow my possible
+                  death since I don't really know how you'll react to this at
+                  all.
+                </p>
+                <p>Honestly I can't wait for your reaction.</p>
+                <p>
+                  (There is a possible chance that you do not realise that this
+                  thing is supposed to be a tombstone)
+                </p>
+                <p></p>
+                <p>
+                  Originally,I was going to add some flowers bouquets to this
+                  tombstone,some of them being yours and the others being mine.
+                </p>
+                <p>
+                  But the problem was that the flowers didn't look good enough
+                  and I couldn't actually turn them into a bouquet. Plus with
+                  the typing animation running it would've looked ugly so
+                  instead I just decided to remove it entirely.
+                </p>
+                <p>
+                  After some further thought,I decided to turn the tombstone
+                  into a tablet screen since it didnt looks as good as I wanted
+                  it to. Sigh expectations verus reality type of shit. The
+                  tablet version looks alot better. I'll revisit this idea once
+                  I get better at coding,
+                </p>
+                <p></p>
+                <p>
+                  -----------------------------------------------------------
+                </p>
+                <p>
+                  Originally for the poem,I was going to use a statue instead of
+                  a knight but a statue cannot move and a knight can.
+                </p>
+                <p>
+                  So I changed it to a knight. So as a bonus,you get to see the
+                  statue poem
+                </p>
+                <p></p>
+                <p>A statue standing strong.</p>
+                <p></p>
+                <p>Waiting for the warmth of the Sun.</p>
+                <p></p>
+                <p>Yet stands in a razed forest.</p>
+                <p></p>
+                <p>Patiently waiting for the Sun's grace.</p>
+                <p></p>
+                <p>Yet slowly crumbles with the winds of change.</p>
+                <p></p>
+                <p>A statue knowing that the Sun will set.</p>
+                <p></p>
+                <p>The moss slowly covering its eyes,</p>
+                <p></p>
+                <p>yet the Sun's light cannot be blocked.</p>
+                <p></p>
+                <p>A statue waiting.</p>
+                <p></p>
+                <p>
+                  ----------------------------------------------------------
+                </p>
               </div>
             </article>
           </section>
           <footer>
-            <p>
-              ¹: What are my boundaries? Honestly,it's not my boundaries. It's
-              basically what I perceive as the boundaries of our relationship,so
-              it'd be more accurate for it to be called the boundaries of this
-              relationship. Since I feel like that if I go beyond these
-              boundaries, I might overwhelm or detrimentally affect you. Hmm
-              maybe I really am becoming schizophrenic over this. This entire
-              thing is just my pent-up overthinking
-            </p>
             <script src="text.js"></script>
           </footer>
         </div>
