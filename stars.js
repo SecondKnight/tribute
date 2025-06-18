@@ -1,7 +1,10 @@
 window.onload = function () {
   const canvas = document.createElement("canvas");
   canvas.classList.add("star-canvas");
-  document.body.appendChild(canvas);
+
+  // Append canvas inside .sky, not body
+  const skyContainer = document.querySelector(".sky");
+  skyContainer.appendChild(canvas);
 
   const ctx = canvas.getContext("2d");
   let stars = [];
