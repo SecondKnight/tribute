@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Farewell</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farewell</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -130,22 +131,98 @@
       .tombtext pre {
         opacity: 0;
         transform: translateY(0.5em);
-        transition: opacity 0.5s ease, transform 0.5s ease;
         height: 0;
         overflow: hidden;
         margin: 0;
+        transition: opacity 0.6s ease, transform 0.6s ease;
       }
 
+      /* Optional initial setup state (not strictly required) */
+      .tombtext p.pre-show,
+      .tombtext pre.pre-show {
+        opacity: 0;
+        transform: translateY(0.5em);
+        height: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      /* Animate into view */
       .tombtext p.show,
       .tombtext pre.show {
         opacity: 1;
         transform: translateY(0);
         height: auto;
+        overflow: visible;
         margin-bottom: 1.5rem;
+      }
+
+      /* Instant load version */
+      .tombtext p.no-anim,
+      .tombtext pre.no-anim {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      /* Container for the toggle */
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      /* Hide default checkbox */
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      /* The track */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        background-color: #ccc;
+        border-radius: 24px;
+        width: 100%;
+        height: 100%;
+        transition: background-color 0.3s;
+      }
+
+      /* The circular slider */
+      .slider::before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 2px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.3s;
+      }
+
+      /* Toggled state */
+      .toggle-switch input:checked + .slider {
+        background-color: #4caf50;
+      }
+
+      .toggle-switch input:checked + .slider::before {
+        transform: translateX(26px);
       }
     </style>
   </head>
   <body>
+    <label class="toggle-switch" title="Toggle typing animation">
+      <input type="checkbox" id="toggleTyping" />
+      <span class="slider"></span>
+    </label>
+
     <div class="sky">
       <main>
         <div class="tombstone">
@@ -153,7 +230,6 @@
             <header><h1>My farewell gift...</h1></header>
             <article>
               <div class="tombtext">
-                
                 <p>
                   Alright,you really thought that I would just listen to you and
                   not give you anything for an actual farewell gift?
@@ -258,29 +334,29 @@
                   yapping with you for longer amounts of time. Nowadays,we just
                   speak less with a longer interval for every conversation. Your
                   reasons are completely valid and it's not your fault but it
-                  still hurts having to wait for you.
+                  still kinda hurts to have to wait for you.
                 </p>
+                <p></p>
                 <p>
-                  Sigh, I'm not sure if I even have the right to say all of this
-                  or me to even feel hurt about this, but it's better than
-                  keeping this pent-up and then letting it burst.
+                  I'm not saying that you should give me more time like how a
+                  plant needs sunlight. This is more of me expressing myself
+                  since while I do want more time with you,at the same time I
+                  don't want more time with you since you're way busier than me
+                  and time is already a valuable commodity,for you it's even
+                  more valuable so you already giving some of your time is
+                  enough. That's why I called myself selfish lol
                 </p>
                 <p></p>
                 <p>
                   I still want to stay close to you without trying to be too
-                  clingy. That pain is honestly the only thing I dislike about
-                  this. It makes me want to say words or actions to you that I
-                  will definitely regret after doing so. You're probably the
-                  only person that makes me feel like this thankfully. Like the
-                  only similar situation I've had with this was the one with
-                  Warda which was honestly a good one for me. Thanks to that
-                  mess, I became more mature about that stuff. Anyways, enough
-                  of this.
-                </p>
-                <p></p>
-                <p>
-                  3. Not meeting you sooner. Ngl I wonder how different our
-                  lives would've been if we met earlier (???)
+                  clingy. Honestly,in hindsight it was better that we began
+                  speaking to each other after our 10th boards. While I do pride
+                  myself on being mature,I would've definitely done something
+                  stupid like how I did with Warda to you since I was still
+                  immature and would've definitely hurt you. Thanks to that
+                  whole mess with her,I actually matured a lot especially in
+                  regards to this,otherwise I would've made a mess a long time
+                  ago and wouldn't be writing this letter.
                 </p>
                 <p></p>
                 <p></p>
@@ -303,6 +379,7 @@
                   Now,you’re probably wondering,why am I only going to send this
                   to you right before I get onto my first flight?
                 </p>
+                <p></p>
                 <p>
                   Since I want to hold this final surprise as close to my chest
                   as possible before I chuck it to you full speed in the head
@@ -328,6 +405,7 @@
                   about and my only limit is the amount of time that you have.
                 </p>
                 <p></p>
+                <p></p>
                 <p>
                   Speaking of which,do you remember how I used to just spam
                   reels in your direct messages? I'm not sure if you noticed it
@@ -345,7 +423,7 @@
                 </p>
                 <p>
                   3. Since my time is limited with you,I might as well use it to
-                  its fullest.
+                  its fullest by yapping with you instead of sending you reels.
                 </p>
                 <p></p>
                 <p></p>
@@ -406,9 +484,9 @@
                   but that doesn't make the fear any less real lol. You're
                   practically embedded into my life at this point rapidly with
                   how synced we became with each other and you suddenly
-                  disappearing forever would definitely be a not fun experience.
-                  (let's be real,you always disappear all the time but you do
-                  reappear)
+                  disappearing forever would definitely be a not fun experience
+                  for me. (let's be real,you always disappear all the time but
+                  you do reappear)
                 </p>
                 <p></p>
                 <p>
@@ -418,9 +496,8 @@
                 </p>
                 <p></p>
                 <p>
-                  Since I've decided to let my guard down a bit with you,It's a
-                  good time for me to ask you about how you view me and what are
-                  your actual thoughts about me.
+                  Since I'm just going to yapping for a while, what do you
+                  actually think about me?
                 </p>
                 <p></p>
                 <p>
@@ -431,8 +508,8 @@
                 <p></p>
                 <p>
                   I however don't really have a plan for when you eventually
-                  decide to leave I figured that I should just let life work
-                  it's magic and improvise or just go with the flow.
+                  decide to leave since there would be too many variables and I
+                  don't think I could stop you if you put your mind to it sigh.
                 </p>
                 <p></p>
                 <p>
@@ -530,12 +607,13 @@
                 <p></p>
                 <p>
                   Sometimes,I just want to hit them with a chisel. Not gonna
-                  lie,I kinda wanted to write a letter to you by hand since I
-                  know that you like handwritten and personal stuff. But thanks
-                  to your refusal,you created this monster of almost 2,500
-                  words. I wonder how many words this letter is going to be by
-                  the time you actually read this². I'm low key proud of myself
-                  for being able to yap this much.
+                  lie,I wanted to write a letter to you by hand since I know
+                  that you like handwritten and personal stuff. But thanks to
+                  your refusal,you created this monster of almost 2,500 words. I
+                  wonder how many words this letter is going to be by the time
+                  you actually read this². I'm low key proud of myself for being
+                  able to yap this much. As of June 19th,this would take me at
+                  least 16 pages to write this out.
                 </p>
                 <p></p>
                 <p>
@@ -582,8 +660,6 @@
                   You have both my first letter and my first farewell letter.
                 </p>
                 <p></p>
-                <p></p>
-                <p></p>
                 <p>
                   Speaking of habits,over time I've begun to notice at what
                   times you usually come online. If you have college then you
@@ -604,12 +680,24 @@
                 </p>
                 <p></p>
                 <p>
+                  I also kept those little paper notes that you gave me that I'm
+                  now thinking of throwing away so my family doesn't rummage
+                  through them and think that I have a girlfriend or even had
+                  contact with a girl before.
+                </p>
+                <p>
+                  Should I burn them or eat them? Hmm WHAT IF I BURN THEM AND
+                  THEN EAT THEM? SIGH I'M JUST TOO HANDSOME.
+                </p>
+                <p></p>
+                <p>
                   Now,this is the part in which I clarify that I'm not a stalker
                   and that I just have the habits of one. Since I may act like a
                   stalker,I've always respected your privacy. Plus,there's
                   nothing for me to gain if I actually try to stalk you since I
                   can always ask you directly. Additionally I'm not insecure
-                  enough to do such a thing.
+                  enough to do such a thing. Also,yes I'm jobless but not
+                  jobless enough to log every time you become online ;-;
                 </p>
                 <p></p>
                 <p>
@@ -645,7 +733,7 @@
                 </p>
                 <p></p>
                 <p>
-                  In hindsight,enigma isn't really a word used to compliment
+                  In hindsight,enigma isn't often a word used to compliment
                   people but it's still a compliment in my opinion.
                 </p>
                 <p></p>
@@ -715,7 +803,7 @@
                   timeless,just like your public speaking skills. Honestly,you
                   could improve it even more if you become an extrovert but you
                   being an introvert and having a good skill level is already
-                  good enough.
+                  amazing with you being you.
                 </p>
                 <p></p>
                 <p>
@@ -725,10 +813,10 @@
                   opposite,like if I have to pick a color that reminds me of you
                   then I would say brown. Not the boring type of brown,but a
                   coffee-hazelnut brown since I feel like it would be you the
-                  most,you're a mix of everything after all. I get tired of
-                  people in general,not a specific person and even if I did get
-                  tired of people, I couldn't get tired of you even if I had
-                  multiple lifetimes.
+                  most,you're a mix of everything after all. I do get tired of
+                  people.I realised this when I was fighting with my parents
+                  about having to say farewell to my relatives,but I don't think
+                  I can get tired of you,even if I had multiple lifetimes.
                 </p>
                 <p></p>
                 <p>As a friend of yours,I ask you this.</p>
@@ -829,18 +917,35 @@
                 <p>
                   Hmm,I should make you promise that you'll ask me for help
                   whenever you need help or just anything in general. There are
-                  other people around you or that you know who would glad to
-                  help you aswell so don't forget that.
+                  other people around you or that you know who would be glad to
+                  help you as well so don't forget that.
                 </p>
                 <p></p>
                 <p>
                   Remember to take care of yourself well and stay safe. That
                   includes you being safe from yourself and to have more
-                  confidence in your self and to stop undervaluing yourself.
-                  Just become a narcissist since unlike me,you actually have the
+                  confidence in yourself and to stop undervaluing yourself. Just
+                  become a narcissist since unlike me,you actually have the
                   looks to be one and it would boost your confidence in yourself
                   since narcissism is just an excessive amount of self-love.
                 </p>
+                <p></p>
+                <p>
+                  I tell you that you're unique all the time,which is the truth.
+                  Nobody else can be you after all. You learnt four languages;
+                  English,Hindi,Urdu and Arabic. You're good at so many
+                  different things like swimming,skating,basketball,DIY
+                  jewelry,public speaking,and etc.
+                </p>
+                <p></p>
+                <p>
+                  Sure,it's not like you're the only person who learns those
+                  things,but who else other than you has all of the qualities
+                  and things that I mentioned earlier? Sure,it's not like you
+                  specialized in any one hobby but as the saying goes; A jack of
+                  all trades,master of none but better than a master of one.
+                </p>
+                <p></p>
                 <p></p>
                 <p></p>
                 <p>
@@ -947,17 +1052,16 @@
                 <p>فِي أَمَانِ اللَّهِ</p>
                 <p></p>
                 <p></p>
-
+                <p></p>
                 <p>FOOTNOTES</p>
                 <p></p>
-                <p>¹:</p>
-                <p></p>
                 <p>
-                  What are those boundaries? It's basically what I perceive as
+                  ¹:What are those boundaries? It's basically what I perceive as
                   the boundaries of our relationship,so it'd be more accurate
                   for it to be called the boundaries of this relationship. Since
                   I feel like that if I go beyond these boundaries, I might
-                  overwhelm or detrimentally affect you.
+                  overwhelm or detrimentally affect you. If you ask me to
+                  elaborate then idk how.
                 </p>
                 <p></p>
                 <p>
@@ -981,7 +1085,7 @@
                   June 11th=2972 words || poem has been added,187 words removed
                   and stuffed into footnote 3
                 </p>
-                <p>June 12th=3472 words ||the letter is almost finished.</p>
+                <p>June 12th=3472 words || The letter is almost finished.</p>
                 <p>
                   June 13th=3512 words || I believe that the letter is finished.
                 </p>
@@ -998,49 +1102,62 @@
                 </p>
                 <p>
                   June 17th=4796 words || Alright I think I'm finally done for
-                  now. Hopefully I don't get any more ideas
+                  now. Hopefully I don't get any more ideas.
+                </p>
+                <p>
+                  Never mind,I'm burning some words away and am rewriting
+                  another paragraph and forgot to update the final count
+                </p>
+                <p>
+                  June 17th=5011 words || Today I think I'm going to be working
+                  more on the footnotes and the website itself. Since I think
+                  I’m actually done. I think yapping with you just gives me new
+                  ideas causing this to get longer and longer.
                 </p>
                 <p></p>
                 <p></p>
                 <p>
                   ³:Since if I use a single paragraph tag for this entire
-                  letter,the spacing wouldn't be proper. So what the C file does
-                  is wrap each line with tags.
+                  letter,I wouldn't be able to space the paragraphs properly so
+                  instead I decided to use a C file to wrap every paragraph of
+                  my words with paragraph tags instead.
                 </p>
-                <p></p>
                 <p>
                   If there's an empty space then it makes a tag with nothing
-                  inside of it.
+                  inside of it to give a line of space.
                 </p>
                 <p></p>
                 <p>For example,</p>
                 <p></p>
-                <pre>
-Input=test | output=&lt;p&gt;test&lt;/p&gt;
-input=        | output=&lt;p&gt;&lt;/p&gt;
-test          | &lt;p&gt;test&lt;/p&gt;
-</pre
-                >
-
+                <p>Input=test | output=&lt;p&gt;test&lt;/p&gt;</p>
+                <p>input= | output=&lt;p&gt;&lt;/p&gt;</p>
+                <p>test | &lt;p&gt;test&lt;/p&gt;</p>
+                <p></p>
                 <p>
-                  Now,you're probably wondering,why did I pick a tombstone for
-                  the design?
+                  The angle brackets that you see aren't actually angle
+                  brackets,since if I actually use them,it would be interpreted
+                  as actual code and then an error would occur. So instead I
+                  wrote them in a way that the system wouldn't interpret it as
+                  actual code.
+                </p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p>
+                  Now,you're probably wondering,why did I originally pick a
+                  tombstone for the design of this website?
                 </p>
                 <p></p>
                 <p>
-                  Since I wanted to have the engraved look of one and since it seemed to be a good design choice at the time
-                </p>
-                <p></p>
-                <p>Honestly I can't wait for your reaction.</p>
-                <p></p>
-                <p>
-                  (There is a possible chance that you do not realise that this
-                  thing is supposed to be a tombstone)
+                  I wanted to reenact the engraved look of a tombstone and
+                  wanted the text to have the same ancient type of vibe.
                 </p>
                 <p></p>
                 <p>
-                  Originally,I was going to add some flower bouquets to this
-                  tombstone,some of them being yours and the others being mine.
+                  I was planning on adding some flower bouquets to this
+                  tombstone,some of them being yours and the others being mine
+                  from that question that I asked that was along the lines of
+                  "What flowers would you want at your funeral?"
                 </p>
                 <p></p>
                 <p>
@@ -1051,20 +1168,29 @@ test          | &lt;p&gt;test&lt;/p&gt;
                 </p>
                 <p></p>
                 <p>
+                  The "tombstone" looked like a slightly burnt white wall and
+                  even after applying some special effects it still looked like
+                  pigeon shit and I couldn't engrave the text like how I wanted
+                  to do so originally.
+                </p>
+                <p></p>
+                <p>
                   After some further thought,I decided to turn the tombstone
                   into a tablet screen since it didn't look as good as I wanted
                   it to and it didn't match the vibe I wanted. Sigh expectations
-                  versus reality type of shit. The tablet version looks alot
-                  better. I'll revisit this idea once I get better at coding,
+                  versus reality type of shit. The tablet version looks a lot
+                  better on both computer and on mobile.
                 </p>
-                <p>Honestly,the tablet screen one matches the vibe better than this
-                and just looks so much better overall    
+                <p>
+                  I'll revisit this idea once I get better at coding since this
+                  idea is definitely possible once I learn more.
                 </p>
+                <p></p>
                 <p>
                   Additionally,I replaced the typing animation with a simple
                   load in animation since it was taking too long for this letter
-                  to fully be animated,atleast being over 15 minutes,with some
-                  proformance issues aswell. Honestly the load-in animation
+                  to fully be animated,at least being over 15 minutes,with some
+                  performance issues as well. Honestly the load-in animation
                   looks a lot better,is clean and only takes up 2-3 minutes.
                 </p>
                 <p></p>
@@ -1072,24 +1198,59 @@ test          | &lt;p&gt;test&lt;/p&gt;
                   Plus,before due to the typing animation,there was an issue in
                   viewing this website on mobile. On mobile,when the website
                   loads,you would already be zoomed in and would have to zoom
-                  out manually to see it properly.
+                  out manually to see it properly. See more at bug notes
                 </p>
                 <p></p>
                 <p>
-                  Update:June 13th or after since I'm writing this as of June
-                  18th,that error has made a return since I had to change the
-                  screen's dimensions from dynamic to static.
-                  Update#2:June 18th,made it dynamic again.
+                  All of these changes made for a good minimalist vibe since I
+                  removed all of the complex stuff and turned back to
+                  simplicity.
                 </p>
                 <p></p>
                 <p>
-                  What I do to check for minor errors like grammar and spelling
-                  is to paste the entire letter in google docs so it could find
-                  it for me.
+                  I've reread the entire letter more than once to make sure that
+                  there aren't any mistakes but since I might miss some stuff,I
+                  used chatgpt for checking the letter to see if I made any
+                  mistakes like with the tone and my choice of words and google
+                  docs for basic spelling and grammar mistakes since it's more
+                  efficient.
+                </p>
+                <p></p>
+                <p>Bug log:</p>
+                <p>1. Description of the bug:</p>
+                <p>
+                  Basically if you open the website on mobile,for some reason
+                  it'll be a bit zoomed in so you have to zoom out with your
+                  fingers to see this in all of it's full glory
+                </p>
+                <p></p>
+                <p>
+                  Update:This occurred after June 13th and I don’t have an exact
+                  date since I was writing this as of June 18th. That bug has
+                  made a return since I had to change the tablet screen's
+                  dimensions from dynamic to static.
+                </p>
+                <p></p>
+                <p>
+                  Update#2:June 18th,made it dynamic again since when I tested
+                  it by locally hosting it with my laptop it was working fine,so
+                  once again that bug disappeared
+                </p>
+                <p></p>
+                <p>
+                  Static means that the dimensions like height,width,length are
+                  locked in and that their values won’t change.
                 </p>
                 <p>
-                  The app that I'm using to write this all is called obsidian
-                  and ngl it's nice.
+                  Dynamic means that depending on the content in the box,the
+                  height,width,and length would change to fit the content in the
+                  box.
+                </p>
+                <p></p>
+                <p>2. Description of the bug:</p>
+                <p>
+                  When the entire text animation finished loading,the entire
+                  screen would become white due to improper CSS.
                 </p>
                 <p></p>
                 <p>
@@ -1105,6 +1266,7 @@ test          | &lt;p&gt;test&lt;/p&gt;
                   So I changed it to a knight. So as a bonus,you get to see the
                   statue poem
                 </p>
+                <p></p>
                 <p></p>
                 <p>A statue standing strong.</p>
                 <p></p>
@@ -1137,5 +1299,12 @@ test          | &lt;p&gt;test&lt;/p&gt;
       </main>
     </div>
     <script src="stars.js"></script>
+    <script>
+      const toggle = document.getElementById("toggleTyping");
+      toggle.addEventListener("change", function () {
+        localStorage.setItem("typingEnabled", toggle.checked);
+        location.reload(); // reload to re-run animation script
+      });
+    </script>
   </body>
 </html>
